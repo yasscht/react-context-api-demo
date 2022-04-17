@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import "./ProductCard.css";
+import Rating from "./Rating";
 const ProductCard = ({ product }) => {
   return (
     <div className="productCard__wrapper">
@@ -8,9 +10,21 @@ const ProductCard = ({ product }) => {
         <div className="ProductCard__price">
           <h5>{product.price}</h5>
         </div>
-        <div className="ProductCard__Rateing"></div>
+        <div className="ProductCard__Rateing">
+          <Rating
+            value={product.rating}
+            text={`${product.numReviews} reviews`}
+          />
+        </div>
+        {/*  <button
+          className='ProductCard__button'
+          onClick={() => addToCart(product)}
+        >
+          Add to basket
+        </button> */}
       </div>
     </div>
   );
 };
+
 export default ProductCard;
