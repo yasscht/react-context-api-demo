@@ -1,7 +1,12 @@
 import { useContext } from "react";
 import "./ProductCard.css";
+
 import Rating from "./Rating";
+import CartContext from "../context/cart/CartContext";
+
 const ProductCard = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
+  let opts = { format: "%s%v", symbol: "€" };
   return (
     <div className="productCard__wrapper">
       <div>
@@ -16,12 +21,12 @@ const ProductCard = ({ product }) => {
             text={`${product.numReviews} reviews`}
           />
         </div>
-        {/*  <button
-          className='ProductCard__button'
+        <button
+          className="ProductCard__button"
           onClick={() => addToCart(product)}
         >
           Add to basket
-        </button> */}
+        </button>
       </div>
     </div>
   );
